@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>陈俊烨 CJY — 作品集 / Portfolio</title>
+<meta name="description" content="陈俊烨 CJY 的作品集 · Vibe Coder · AI 教育系统数字化 · 未来课堂探索 · AI 多模态" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<!-- 导航 -->
+<header class="nav" id="nav">
+  <a href="#hero" class="nav-logo">陈俊烨<span>CJY</span></a>
+  <nav class="nav-links">
+    <a href="#about"><i>01</i>关于</a>
+    <a href="#works"><i>02</i>作品</a>
+    <a href="#campus"><i>03</i>校内</a>
+    <a href="#hackathons"><i>04</i>黑客松</a>
+    <a href="#volunteer"><i>05</i>志愿</a>
+  </nav>
+  <a href="https://cjy-self-production.zeabur.app" target="_blank" rel="noopener" class="nav-cta">个人主站 <span>↗</span></a>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-meta">
+      <span>AI-NATIVE BUILDER</span>
+      <span>PORTFOLIO — 2026</span>
+      <span>HANGZHOU, CN</span>
+    </div>
+    <h1 class="hero-title">陈俊烨<em>CJY</em></h1>
+    <p class="hero-roles">
+      Vibe Coder &nbsp;—&nbsp; AI 教育系统数字化 &nbsp;—&nbsp; 未来课堂探索 &nbsp;—&nbsp; AI 多模态
+    </p>
+    <div class="hero-foot">
+      <p class="hero-desc">
+        从软件工程到人工智能，从一行代码到一个智能体——<br />
+        我在用 AI 重新定义教育、课堂与创造的边界。
+      </p>
+      <div class="hero-actions">
+        <a href="#works" class="btn btn-primary">查看作品</a>
+        <a href="#about" class="btn btn-ghost">了解我</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num" data-count="15">0</span><span class="stat-label">黑客松经历</span></div>
+      <div class="stat"><span class="stat-num" data-count="6">0</span><span class="stat-label">获奖 / 荣誉</span></div>
+      <div class="stat"><span class="stat-num" data-count="4">0</span><span class="stat-label">校内开发项目</span></div>
+      <div class="stat"><span class="stat-num" data-count="100" data-suffix="%">0</span><span class="stat-label">AI 全链路参与</span></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <header class="section-head">
+      <span class="section-kicker">(01)</span>
+      <h2 class="section-title">关于我 <em>About</em></h2>
+    </header>
+    <div class="about-grid">
+      <div class="about-card">
+        <span class="card-no">A1</span>
+        <h3>教育背景</h3>
+        <ul class="about-list">
+          <li><strong>本科 · 软件工程</strong><span>基础编程 + 大数据 · Web 前后端 · Java 编程</span></li>
+          <li><strong>研究生 · 浙江工商大学</strong><span>信电人工智能学院</span></li>
+        </ul>
+      </div>
+      <div class="about-card">
+        <span class="card-no">A2</span>
+        <h3>我做什么</h3>
+        <p>以 Vibe Coding 的方式，把 AI 能力嵌入真实场景——教育系统、智能体、未来课堂与多模态应用，让技术真正落地为产品与体验。</p>
+        <div class="tag-row">
+          <span class="tag">Vibe Coding</span>
+          <span class="tag">AI Agent</span>
+          <span class="tag">教育数字化</span>
+          <span class="tag">多模态</span>
+          <span class="tag">Web 全栈</span>
+        </div>
+      </div>
+      <div class="about-card about-cta-card">
+        <span class="card-no">A3</span>
+        <h3>个人主站</h3>
+        <p>想更全面地了解我？在站内窗口直接预览我的个人专业介绍主站，无需离开本页。</p>
+        <button class="link-cta" data-open-frame="https://cjy-self-production.zeabur.app" data-frame-title="陈俊烨 · 个人专业介绍主站">站内预览主站 <span>⊞</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKS -->
+  <section class="section" id="works">
+    <header class="section-head">
+      <span class="section-kicker">(02)</span>
+      <h2 class="section-title">作品展示 <em>Selected Works</em></h2>
+      <p class="section-sub">点击任意作品，在站内窗口中直接预览，无需跳转。</p>
+    </header>
+    <div class="works-grid" id="worksGrid"><!-- works.js 动态生成 --></div>
+  </section>
+
+  <!-- 校内 -->
+  <section class="section" id="campus">
+    <header class="section-head">
+      <span class="section-kicker">(03)</span>
+      <h2 class="section-title">校内贡献 <em>On Campus</em></h2>
+      <p class="section-sub">浙江工商大学 · 把 AI 带进智慧校园</p>
+    </header>
+    <div class="campus-grid">
+      <div class="campus-card">
+        <span class="campus-role">开发贡献者</span>
+        <h3>信电智慧学院</h3>
+        <p>参与浙江工商大学信电智慧学院平台的开发与建设。</p>
+      </div>
+      <div class="campus-card">
+        <span class="campus-role">智能体开发者</span>
+        <h3>"未来课堂" 智能体</h3>
+        <p>为浙江工商大学打造面向未来课堂的 AI 智能体。</p>
+      </div>
+      <div class="campus-card">
+        <span class="campus-role">系统开发者</span>
+        <h3>研究生院督导管理系统</h3>
+        <p>开发浙江工商大学研究生院督导管理系统。</p>
+      </div>
+      <div class="campus-card campus-card-wide">
+        <span class="campus-role">🦞 课程探索</span>
+        <h3>"小龙虾" 课程智能体矩阵</h3>
+        <p>与诸葛导师一起探索，把"小龙虾"接入课程：</p>
+        <div class="tag-row">
+          <span class="tag">会议室预约小龙虾</span>
+          <span class="tag">智慧就业小龙虾</span>
+          <span class="tag">图书馆管理小龙虾</span>
+          <span class="tag">象棋指导小龙虾</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub-head">培训与教学 <em>Teaching</em></h3>
+    <div class="train-list">
+      <div class="train-item">
+        <span class="train-date">2026.03.22</span>
+        <div><strong>浙江省青年创业协会</strong><span>养龙虾 🦞 培训</span></div>
+      </div>
+      <div class="train-item">
+        <span class="train-date">2026.04.27</span>
+        <div><strong>浙江医药股份有限公司</strong><span>HR AI Agent 智能体搭建培训</span></div>
+      </div>
+      <div class="train-item">
+        <span class="train-date">2026.05.15 – 06.12</span>
+        <div><strong>浙江工商大学 双通班研究生</strong><span>AI 助教</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 黑客松 -->
+  <section class="section" id="hackathons">
+    <header class="section-head">
+      <span class="section-kicker">(04)</span>
+      <h2 class="section-title">黑客松征程 <em>Hackathons</em></h2>
+      <p class="section-sub">从第一次参赛，到志愿者，再到主办方——AI 黑客松全链路。</p>
+    </header>
+    <div class="timeline" id="timeline"><!-- works.js 动态生成 --></div>
+  </section>
+
+  <!-- 志愿 -->
+  <section class="section" id="volunteer">
+    <header class="section-head">
+      <span class="section-kicker">(05)</span>
+      <h2 class="section-title">志愿服务足迹 <em>Volunteering</em></h2>
+      <p class="section-sub">一条贯穿求学阶段的奉献之路。</p>
+    </header>
+    <div class="volunteer-path">
+      <div class="vol-step"><span class="vol-stage">初中</span><p>图书馆志愿者</p></div>
+      <div class="vol-arrow">→</div>
+      <div class="vol-step"><span class="vol-stage">高中</span><p>博物馆志愿者</p></div>
+      <div class="vol-arrow">→</div>
+      <div class="vol-step"><span class="vol-stage">本科</span><p>雷锋队队长</p></div>
+      <div class="vol-arrow">→</div>
+      <div class="vol-step"><span class="vol-stage">考研</span><p>古建筑博物馆实习</p></div>
+      <div class="vol-arrow">→</div>
+      <div class="vol-step vol-step-now"><span class="vol-stage">研究生</span><p>AI 活动 / 黑客松<br />参赛 · 志愿 · 工作人员<br /><em>全链路参与</em></p></div>
+    </div>
+  </section>
+</main>
+
+<!-- 页脚 -->
+<footer class="footer">
+  <div class="footer-top">
+    <span class="footer-mark">陈俊烨 — CJY</span>
+    <a href="https://cjy-self-production.zeabur.app" target="_blank" rel="noopener">个人主站 ↗</a>
+  </div>
+  <p class="footer-big">Built with AI,<br />for the AI&nbsp;era.</p>
+  <p class="footer-copy">© 2026 陈俊烨 CJY · All rights reserved.</p>
+</footer>
+
+<!-- 站内预览弹窗 -->
+<div class="modal" id="frameModal" aria-hidden="true">
+  <div class="modal-backdrop" data-close-frame></div>
+  <div class="modal-window">
+    <div class="modal-bar">
+      <span class="modal-label">PREVIEW</span>
+      <span class="modal-title" id="frameTitle">预览</span>
+      <div class="modal-actions">
+        <a class="modal-open" id="frameOpenNew" target="_blank" rel="noopener" title="在新标签页打开">新窗口 ↗</a>
+        <button class="modal-close" data-close-frame title="关闭">关闭 ✕</button>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="frame-loader" id="frameLoader"><div class="spinner"></div><span>正在加载预览…</span></div>
+      <iframe id="frameView" title="作品预览" loading="lazy" referrerpolicy="no-referrer"></iframe>
+      <div class="frame-fallback" id="frameFallback" hidden>
+        <p>该网站不允许被嵌入预览。</p>
+        <a class="btn btn-primary" id="fallbackOpen" target="_blank" rel="noopener">在新窗口打开 ↗</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="works.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

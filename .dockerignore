@@ -1,0 +1,11 @@
+.git
+.gitignore
+.claude
+.DS_Store
+node_modules
+npm-debug.log
+README.md
+Dockerfile
+.dockerignore
+server.js
+package.json
