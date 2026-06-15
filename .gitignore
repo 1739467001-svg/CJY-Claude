@@ -14,3 +14,6 @@ npm-debug.log*
 # 环境变量
 .env
 .env.local
+
+# PDF/简历作品集生成工作目录（不属于站点）
+application/
