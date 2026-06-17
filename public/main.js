@@ -11,6 +11,31 @@ const GRADIENTS = [
   "linear-gradient(150deg,#5a2a1e,#1b1916)",
 ];
 
+/* ===== 作品分类（筛选条 + 策展） ===== */
+const WORK_GROUPS = [
+  { key: "all",       zh: "全部",     en: "All" },
+  { key: "twin",      zh: "数字孪生", en: "Digital Twin" },
+  { key: "agent",     zh: "智能体",   en: "Agents" },
+  { key: "immersive", zh: "3D 沉浸",  en: "Immersive 3D" },
+  { key: "app",       zh: "AI 应用",  en: "AI Apps" },
+];
+let workFilter = "all";
+
+// 依据 cat + tags 关键词推断分组（无需在 works.js 标注）
+function groupOf(w) {
+  const s = (w.cat || "") + " " + (w.tags || []).join(" ");
+  if (/数字孪生/.test(s)) return "twin";
+  if (/Agent|智能体|陪伴/.test(s)) return "agent";
+  if (/沉浸|画廊|VR|看房|太阳系/.test(s)) return "immersive";
+  return "app";
+}
+
+// 旗舰作品：在 Bento 网格中横跨双栏
+const FEATURED = new Set([
+  "https://cargo-claw.vercel.app",
+  "http://aerotwin-tfu.vercel.app/",
+]);
+
 /* ===== 国际化 i18n ===== */
 let LANG = localStorage.getItem("cjy-lang") || "zh"; // 默认中文
 
@@ -49,9 +74,24 @@ function setLang(lang) {
   LANG = lang;
   localStorage.setItem("cjy-lang", lang);
   applyStaticI18n();
+  renderFilter();
   renderWorks();
   renderTimeline();
   observeReveal();
+}
+
+/* ===== 渲染分类筛选条 ===== */
+function renderFilter() {
+  const bar = $("#worksFilter");
+  if (!bar || !WORKS.length) return;
+  bar.innerHTML = WORK_GROUPS.map((g) => {
+    const n = g.key === "all" ? WORKS.length : WORKS.filter((w) => groupOf(w) === g.key).length;
+    if (!n) return "";
+    const label = LANG === "en" ? g.en : g.zh;
+    return `<button class="filter-chip${g.key === workFilter ? " active" : ""}" data-filter="${g.key}">
+      ${label}<sup>${n}</sup>
+    </button>`;
+  }).join("");
 }
 
 /* ===== 渲染作品块 ===== */
@@ -65,16 +105,18 @@ function renderWorks() {
     </div>`;
     return;
   }
-  grid.innerHTML = WORKS.map((w, i) => {
+  const list = WORKS.filter((w) => workFilter === "all" || groupOf(w) === workFilter);
+  grid.innerHTML = list.map((w, i) => {
     const pick = (zh, en) => (LANG === "en" && en) ? en : zh;
     const title = pick(w.title, w.title_en);
     const cat = pick(w.cat, w.cat_en);
     const desc = pick(w.desc, w.desc_en);
+    const featured = FEATURED.has(w.url) ? " featured" : "";
     const bg = w.image
       ? `<div class="work-thumb" style="background-image:url('${w.image}')"></div>`
       : `<div class="work-gradient" style="background:${w.gradient || GRADIENTS[i % GRADIENTS.length]}"></div>`;
     const tags = (w.tags || []).map((x) => `<span>${x}</span>`).join("");
-    return `<article class="work-card has-media reveal" data-open-frame="${w.url}" data-frame-title="${title}">
+    return `<article class="work-card has-media reveal${featured}" data-open-frame="${w.url}" data-frame-title="${title}">
       ${bg}
       <div class="work-overlay"></div>
       <div class="work-open">${t("workOpen")}</div>
@@ -160,6 +202,16 @@ document.addEventListener("keydown", (e) => { if (e.key === "Escape" && modal.cl
 /* ===== 语言切换按钮 ===== */
 $("#langToggle")?.addEventListener("click", () => setLang(LANG === "zh" ? "en" : "zh"));
 
+/* ===== 作品分类筛选 ===== */
+$("#worksFilter")?.addEventListener("click", (e) => {
+  const chip = e.target.closest("[data-filter]");
+  if (!chip || chip.dataset.filter === workFilter) return;
+  workFilter = chip.dataset.filter;
+  renderFilter();
+  renderWorks();
+  observeReveal();
+});
+
 /* ===== 移动端汉堡菜单 ===== */
 const nav = $("#nav");
 const burger = $("#navBurger");
@@ -206,6 +258,7 @@ const countIO = new IntersectionObserver((entries) => {
 
 /* ===== 启动 ===== */
 applyStaticI18n();
+renderFilter();
 renderWorks();
 renderTimeline();
 observeReveal();
